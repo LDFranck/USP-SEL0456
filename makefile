@@ -1,10 +1,16 @@
-all:
+ALL = main
+all: $(ALL)
 
-hello: hello.o
-	gcc hello.o -lm -o hello
-
-clean:
-	rm -f hello hello.o
+main: hello.o myfunctions.o myfunctions2.o
+	gcc -o $@ $^ -lm
 	
-hello.o: hello.c
-	gcc -c hello.c
+%.o: %.c
+	gcc -c $<
+
+clear_o:
+	rm -f *.o
+
+clear_all: clear_o
+	rm -f $(ALL)
+	
+
