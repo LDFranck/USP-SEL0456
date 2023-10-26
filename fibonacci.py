@@ -6,7 +6,7 @@ def calc_fibo_fallback(obj_fibo):
 	n = 1
 	n_ant = 0
 	n_current = 1
-	while n < obj_fibo.nmax:
+	while n < obj_fibo.n_max:
 		aux = n_current
 		n_current += n_ant
 		n_ant = aux
@@ -35,7 +35,7 @@ class fibonacci_number:
 			n += 1
 			
 	def calc_fibo_rec(self, n):
-		if n> 1:
+		if n > 1:
 			return self.calc_fibo_rec(n-1) + self.calc_fibo_rec(n-2)
 		return n
 			
