@@ -1,6 +1,18 @@
 def calc_fibo(obj_fibo):
 	obj_fibo.n_current = obj_fibo.calc_fibo_rec(obj_fibo.n_max)
+
 	
+def calc_fibo_fallback(obj_fibo):
+	n = 1
+	n_ant = 0
+	n_current = 1
+	while n < obj_fibo.nmax:
+		aux = n_current
+		n_current += n_ant
+		n_ant = aux
+		n += 1
+	return n_current
+
 
 class fibonacci_number:
 	def __init__(self, nmax):
@@ -31,3 +43,6 @@ fib1 = fibonacci_number(10)
 # fib1.calc_fibo_while()
 calc_fibo(fib1)
 print(fib1)
+
+def test_answer():
+	assert fib1.n_current == calc_fibo_fallback(fib1)
